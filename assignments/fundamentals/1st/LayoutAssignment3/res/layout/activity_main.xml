@@ -1,33 +1,288 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".MainActivity">
-    <!-- TODO: 左側から順に、下記の View を配置していき、そのまとまりを画面上部に揃える -->
-    <!-- 1. プロフィール画像(ic_launcher)と、それを囲う四角形の枠、その下に プロフィール と書かれた文字 -->
-    <!-- 2. 1. の右側の上半分に、ニックネームの表示と、そのさらに右端に設定アイコン -->
-    <!-- 3. 1. の右側の下半分に、電話ボタン、メール送信ボタン、共有ボタンの 3 つを均等割付 -->
-    <!-- 4. 2. と 3. の間に分割線 -->
-    <!-- 条件: 3. 以外では LinearLayout を使ってはならない -->
-    <!-- Hint: 1. 画像の表示には、android:src="@drawable/ic_launcher" 属性を使います -->
-    <!-- Hint: 2. 画像を表示しながら、ボタンとして機能させる特別なボタンの View があります -->
-    <!-- Hint: 3. 区切り線を引く専用の UI はありません。背景色を android:background="#393939" にして、区切り線ぽく扱う工夫が必要です -->
-    <!-- Hint: 4. 均等割付するボタンの画像は、左から android:src="@android:drawable/ic_menu_call", android:src="@android:drawable/ic_menu_send", android:src="@android:drawable/ic_menu_share" です -->
-    <!-- TODO: 上記のまとまりの下に、幅 1 dp の区切り線を引く -->
+                xmlns:tools="http://schemas.android.com/tools"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:paddingLeft="@dimen/activity_horizontal_margin"
+                android:paddingRight="@dimen/activity_horizontal_margin"
+                android:paddingTop="@dimen/activity_vertical_margin"
+                android:paddingBottom="@dimen/activity_vertical_margin"
+                tools:context=".MainActivity"
+                android:background="#dddddd">
 
+    <RelativeLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content">
 
-    <!-- TODO: 左側から順に、下記の View を配置していき、そのまとまりを画面下部に揃える -->
-    <!-- 1. ic_launcher のアイコンと、その下に メニュー の文字を表示し、アイコンの右肩に 30 と書かれたバッチを表示するボタン -->
-    <!-- 2. 幅 1dp の 縦の区切り線 -->
-    <!-- 3. ic_launcher のアイコンと、その右に つぶやきを投稿 の文字を表示しているボタン -->
-    <!-- 4. 幅 1dp の 縦の区切り線 -->
-    <!-- 5. ic_launcher のアイコンと、その下に 最近 の文字を表示しているボタン -->
-    <!-- 条件: LinearLayout は一切使用しない -->
-    <!-- Hint: 1. ボタンですが Button は使いません -->
-    <!-- Hint: 2. ボタン用の背景は android:background="@drawable/button_state_list" にします -->
-    <!-- Hint: 3. バッチ用の背景は android:background="@drawable/badge" にします -->
-    <!-- Hint: 4. TextView には、文字の隣に drawable を表示する属性があります -->
+        <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:layout_below="@+id/frameLayout2"
+                android:layout_alignLeft="@+id/frameLayout2"
+                android:layout_above="@+id/textView2"
+                android:id="@+id/linearLayout2">
 
-    <!-- TODO: 上記の View の上に、お知らせを表示する View を配置する -->
-    <!-- Hint: 1. お知らせを表示する View の背景は android:background="@drawable/notify_button_state_list" にします -->
+            <ImageButton
+                    android:layout_width="0dp"
+                    android:layout_height="fill_parent"
+                    android:id="@+id/imageButton"
+                    android:layout_weight="1"
+                    android:src="@android:drawable/ic_menu_call"/>
+
+            <ImageButton
+                    android:layout_width="0dp"
+                    android:layout_height="fill_parent"
+                    android:id="@+id/imageButton2"
+                    android:layout_weight="1"
+                    android:src="@android:drawable/ic_menu_send"/>
+
+            <ImageButton
+                    android:layout_width="0dp"
+                    android:layout_height="fill_parent"
+                    android:id="@+id/imageButton3"
+                    android:layout_weight="1"
+                    android:src="@android:drawable/ic_menu_share"/>
+
+        </LinearLayout>
+
+        <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:text="KeithYokoma"
+                android:id="@+id/textView"
+                android:layout_alignParentTop="true"
+                android:layout_toRightOf="@+id/frameLayout"
+                android:layout_marginLeft="13dp"
+                android:layout_marginBottom="12dp"/>
+
+        <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:text="プロフィール"
+                android:id="@+id/textView2"
+                android:layout_gravity="center_horizontal|bottom"
+                android:layout_below="@+id/frameLayout"
+                android:layout_alignParentLeft="true"
+                android:layout_marginTop="-10dp"/>
+
+        <FrameLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/frameLayout">
+
+                <FrameLayout
+                        android:layout_width="64dp"
+                        android:layout_height="64dp"
+                        android:layout_gravity="center"
+                        android:layout_margin="10dp"
+                        android:background="#393939">
+
+                    <ImageView
+                            android:layout_width="62dp"
+                            android:layout_height="62dp"
+                            android:id="@+id/imageView"
+                            android:layout_alignParentTop="true"
+                            android:layout_alignParentLeft="true"
+                            android:src="@drawable/ic_launcher"
+                            android:layout_gravity="left|top"
+                            android:background="#ffffff"
+                            android:layout_marginLeft="1dp"
+                            android:layout_marginTop="1dp"/>
+                </FrameLayout>
+
+            </FrameLayout>
+
+        <FrameLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="1dp"
+                    android:background="#000000"
+                    android:id="@+id/frameLayout4"
+                    android:layout_alignParentLeft="true"
+                    android:layout_marginTop="10dp"
+                    android:layout_below="@+id/textView2"/>
+
+        <FrameLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="1dp"
+                    android:background="#000000"
+                    android:id="@+id/frameLayout2"
+                    android:layout_below="@+id/textView"
+                    android:layout_alignLeft="@+id/textView"/>
+
+        <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/imageView2"
+                android:src="@android:drawable/ic_menu_manage"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentRight="true"/>
+    </RelativeLayout>
+
+    <RelativeLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content">
+
+        <RelativeLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="100dp"
+                    android:layout_gravity="center_horizontal|bottom"
+                    android:id="@+id/relativeLayout"
+                    android:layout_alignParentBottom="true"
+                    android:layout_alignParentRight="true">
+
+                <ImageView
+                        android:layout_width="62dp"
+                        android:layout_height="62dp"
+                        android:id="@+id/imageView7"
+                        android:src="@drawable/ic_launcher"
+                        android:layout_gravity="center_horizontal|bottom"
+                        android:background="@null"
+                        android:layout_above="@+id/textView5"
+                        android:layout_alignParentRight="true"
+                        android:layout_marginLeft="10dp"/>
+
+                <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textAppearance="?android:attr/textAppearanceSmall"
+                        android:text="最近"
+                        android:id="@+id/textView5"
+                        android:layout_gravity="center_horizontal|bottom"
+                        android:layout_alignParentBottom="true"
+                        android:layout_alignRight="@+id/imageView7"
+                        android:layout_marginRight="16dp"/>
+
+                <FrameLayout
+                        android:layout_width="1dp"
+                        android:layout_height="match_parent"
+                        android:background="#000000"
+                        android:id="@+id/frameLayout7"
+                        android:layout_alignTop="@+id/frameLayout5"
+                        android:layout_toLeftOf="@+id/imageView7"
+                        android:layout_margin="0dp"
+                        android:layout_marginLeft="0dp"
+                        android:layout_marginRight="0dp"/>
+
+                <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textAppearance="?android:attr/textAppearanceSmall"
+                        android:text="つぶやきを投稿"
+                        android:id="@+id/textView4"
+                        android:layout_gravity="center_horizontal|bottom"
+                        android:layout_centerVertical="true"
+                        android:layout_toRightOf="@+id/imageView6"/>
+
+                <ImageView
+                        android:layout_width="62dp"
+                        android:layout_height="62dp"
+                        android:id="@+id/imageView6"
+                        android:src="@drawable/ic_launcher"
+                        android:layout_gravity="center_horizontal|bottom"
+                        android:background="@null"
+                        android:layout_alignParentBottom="true"
+                        android:layout_toRightOf="@+id/relativeLayout3"
+                        android:layout_marginLeft="15dp"
+                        android:layout_marginBottom="8dp"/>
+
+                <RelativeLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="100dp"
+                        android:layout_gravity="center_horizontal|bottom"
+                        android:id="@+id/relativeLayout3"
+                        android:layout_alignTop="@+id/frameLayout5"
+                        android:layout_toRightOf="@+id/imageView5">
+
+                    <FrameLayout
+                            android:layout_width="1dp"
+                            android:layout_height="match_parent"
+                            android:background="#000000"
+                            android:id="@+id/frameLayout6"
+                            android:layout_alignParentTop="true"
+                            android:layout_alignParentLeft="true"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginRight="10dp"/>
+
+                </RelativeLayout>
+
+                <ImageView
+                        android:layout_width="62dp"
+                        android:layout_height="62dp"
+                        android:id="@+id/imageView5"
+                        android:src="@drawable/ic_launcher"
+                        android:layout_gravity="center_horizontal|bottom"
+                        android:background="@null"
+                        android:layout_above="@+id/textView3"
+                        android:layout_alignParentLeft="true"
+                        android:layout_marginLeft="10dp"/>
+
+                <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textAppearance="?android:attr/textAppearanceSmall"
+                        android:text="メニュー"
+                        android:id="@+id/textView3"
+                        android:layout_gravity="center_horizontal|bottom"
+                        android:layout_alignParentBottom="true"
+                        android:layout_alignRight="@+id/imageView5"/>
+
+                <FrameLayout
+                        android:layout_width="fill_parent"
+                        android:layout_height="1dp"
+                        android:background="#000000"
+                        android:id="@+id/frameLayout5"
+                        android:layout_above="@+id/imageView7"
+                        android:layout_alignParentLeft="true"
+                        android:layout_marginBottom="10dp"/>
+
+                <FrameLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_above="@+id/textView4"
+                        android:layout_alignRight="@+id/imageView5">
+
+                    <ImageView
+                            android:layout_width="25dp"
+                            android:layout_height="25dp"
+                            android:id="@+id/imageView3"
+                            android:layout_gravity="center"
+                            android:src="@drawable/badge"/>
+
+                    <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="30"
+                            android:id="@+id/textView7"
+                            android:layout_gravity="center"/>
+                </FrameLayout>
+
+        </RelativeLayout>
+
+        <FrameLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="60dp"
+                    android:background="#ffa07a"
+
+                    android:id="@+id/frameLayout3"
+                    android:layout_above="@+id/relativeLayout"
+                    android:layout_alignParentLeft="true"
+                    android:layout_marginBottom="-8dp">
+
+                <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textAppearance="?android:attr/textAppearanceMedium"
+                        android:text="30件のお知らせがあります！"
+                        android:id="@+id/textView6"
+                        android:layout_above="@+id/frameLayout5"
+                        android:layout_alignParentRight="true"
+                        android:textColor="#ffffff"
+                        android:layout_gravity="center"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginRight="10dp"/>
+            </FrameLayout>
+
+    </RelativeLayout>
+
 </RelativeLayout>
